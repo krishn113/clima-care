@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useWeather } from '../context/WeatherContext';
+import { useData } from '../context/DataContext';
 import { FaSearch, FaMapMarkerAlt } from "react-icons/fa"; // Importing icons
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
-  const {handleSearch , handleLocationSearch } = useWeather(); // Assuming getCurrentLocation exists in the context
+  const {handleSearch} = useData(); // Assuming getCurrentLocation exists in the context
 
   const onSearch = () => {
     if (input) handleSearch(input);
@@ -13,7 +13,7 @@ const SearchBar = () => {
 
   const onLocationSearch = () => {
     setInput('');
-    handleLocationSearch();
+    handleSearch(null);
   };
 
   return (

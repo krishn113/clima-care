@@ -1,17 +1,17 @@
 import React from 'react';
 import SearchBar from './components/SearchBar';
-import { WeatherProvider } from './context/WeatherContext';
+import { DataProvider } from './context/DataContext';
 import WeatherAndHealth from './components/WeatherAndHealth';
 
 const App = () => {
 
   return (
-  <WeatherProvider>
+  <DataProvider>
     <div className="min-h-screen bg-slate-700 flex flex-col items-center">
       <SearchBar />
       <WeatherAndHealth/>
     </div>
-  </WeatherProvider>
+  </DataProvider>
   );
 };
 
