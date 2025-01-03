@@ -19,7 +19,7 @@ const WeatherCard = () => {
   });
 
   return (
-    <div className="bg-gray-800 text-white p-10 rounded-2xl shadow-lg max-w-sm mx-auto">
+    <div className="bg-gray-800 text-white p-10 rounded-2xl shadow-lg h-full">
       <h2 className="text-2xl font-bold mb-4">Now</h2>
       <div className="flex items-center justify-between mb-6">
         <div className="text-left">
