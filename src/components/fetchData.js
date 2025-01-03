@@ -2,9 +2,8 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
 const POLLUTION_URL = 'https://api.openweathermap.org/data/2.5/air_pollution';
-const GEOCODING_URL = 'http://api.openweathermap.org/geo/1.0/direct';
+const GEOCODING_URL = 'https://api.openweathermap.org/geo/1.0/direct';
 
-console.log(API_KEY);
 
 const getCoordinates = async (city) => {
   if (city) {
