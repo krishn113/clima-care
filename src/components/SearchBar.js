@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useData } from '../context/DataContext';
-import { FaSearch, FaMapMarkerAlt } from "react-icons/fa"; // Importing icons
+import { FaSearch, FaMapMarkerAlt } from "react-icons/fa"; 
 
 const SearchBar = () => {
   const [input, setInput] = useState("");
-  const {handleSearch} = useData(); // Assuming getCurrentLocation exists in the context
+  const {handleSearch} = useData(); 
 
   const onSearch = () => {
     if (input) handleSearch(input);

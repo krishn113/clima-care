@@ -3,26 +3,34 @@ import { useData } from '../context/DataContext';
 import { FaWind } from "react-icons/fa";
 
 const PollutionCard = () => {
-  const { data } = useData(); // Destructure pollution from context
+  const { data } = useData(); 
 
-  // Check if pollution data exists before rendering
+ 
   if (!data) return null;
 
-  // Extract air quality data
+
   const { aqi } = data.pollution.list[0].main;
   const { pm2_5, so2, no2, o3 } = data.pollution.list[0].components;
 
-  // Determine air quality category
+ 
   const getAqiLabel = (aqi) => {
-    switch (aqi) {
-      case 1: return { label: 'Good', color: 'bg-green-500' };
-      case 2: return { label: 'Fair', color: 'bg-yellow-500' };
-      case 3: return { label: 'Moderate', color: 'bg-orange-500' };
-      case 4: return { label: 'Poor', color: 'bg-red-500' };
-      case 5: return { label: 'Very Poor', color: 'bg-purple-500' };
-      default: return { label: 'Unknown', color: 'bg-gray-500' };
+    if (aqi >= 0 && aqi <= 50) {
+      return { label: 'Good', color: 'bg-green-500' };
+    } else if (aqi >= 51 && aqi <= 100) {
+      return { label: 'Moderate', color: 'bg-yellow-500' };
+    } else if (aqi >= 101 && aqi <= 150) {
+      return { label: 'Unhealthy for Sensitive Groups', color: 'bg-orange-500' };
+    } else if (aqi >= 151 && aqi <= 200) {
+      return { label: 'Unhealthy', color: 'bg-red-500' };
+    } else if (aqi >= 201 && aqi <= 300) {
+      return { label: 'Very Unhealthy', color: 'bg-purple-500' };
+    } else if (aqi > 300) {
+      return { label: 'Hazardous', color: 'bg-maroon-500' };
+    } else {
+      return { label: 'Unknown', color: 'bg-gray-500' };
     }
   };
+  
 
   const { label, color } = getAqiLabel(aqi);
 

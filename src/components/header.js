@@ -6,12 +6,12 @@ import { FaWind  , FaCalendar} from "react-icons/fa";
 import { IoLocation } from "react-icons/io5";
 
 const WeatherCard = () => {
-  const { weather } = useWeather(); // Destructure weather from context
+  const { weather } = useWeather(); 
 
-  // Check if weather data exists before rendering
+ 
   if (!weather) return null;
 
-  // Format the current date
+  
   const currentDate = new Date().toLocaleDateString('en-GB', {
     weekday: 'long',
     day: 'numeric',
